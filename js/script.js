@@ -77,7 +77,7 @@ function operate(operation, operand1, operand2) {
       return divide(parseFloat(operand1), parseFloat(operand2));
       break;
     default:
-      return "Please enter a valid operation";
+      return "Invalid operation";
       break;
   }
 }
@@ -97,3 +97,87 @@ function multiply(multiplicand, multiplier) {
 function divide(dividend, divisor) {
   return dividend / divisor;
 }
+
+//Button binding
+const $ = document.querySelector.bind(document);
+const $$ = Array.from(document.querySelectorAll.bind(document));
+const operationDisplay = $(".operation-display");
+const currentNumberDisplay = $(".current-number-display");
+
+function operatorToDisplay(operator, char) {
+  $(`#${operator}`).addEventListener("click", () => {
+    operationDisplay.textContent =
+      operationDisplay.textContent +
+      currentNumberDisplay.textContent +
+      ` ${char} `;
+    currentNumberDisplay.textContent = "";
+  });
+}
+
+function numberToDisplay(number, char) {
+  $(`#${number}`).addEventListener("click", () => {
+    currentNumberDisplay.textContent = currentNumberDisplay.textContent + char;
+  });
+}
+
+numberToDisplay("one", "1");
+numberToDisplay("two", "2");
+numberToDisplay("three", "3");
+numberToDisplay("four", "4");
+numberToDisplay("five", "5");
+numberToDisplay("six", "6");
+numberToDisplay("seven", "7");
+numberToDisplay("eight", "8");
+numberToDisplay("nine", "9");
+numberToDisplay("zero", "0");
+numberToDisplay("dot", ".");
+operatorToDisplay("add", "+");
+operatorToDisplay("subtract", "-");
+operatorToDisplay("multiply", "*");
+operatorToDisplay("divide", "/");
+operatorToDisplay("left-parentheses", "(");
+operatorToDisplay("right-parentheses", ")");
+
+$("#equals").addEventListener("click", () => {
+  if (
+    currentNumberDisplay.textContent === "69" &&
+    operationDisplay.textContent === ""
+  ) {
+    currentNumberDisplay.textContent = "nice.";
+  } else {
+    operationDisplay.textContent =
+      operationDisplay.textContent + currentNumberDisplay.textContent;
+    currentNumberDisplay.textContent = "";
+    if (isNaN(calculator(operationDisplay.textContent))) {
+      currentNumberDisplay.textContent = "Invalid operation";
+    } else {
+      currentNumberDisplay.textContent = calculator(
+        operationDisplay.textContent
+      );
+    }
+    operationDisplay.textContent = "";
+  }
+});
+
+$("#erase").addEventListener("click", () => {
+  if (currentNumberDisplay.textContent !== "") {
+    currentNumberDisplay.textContent = currentNumberDisplay.textContent.slice(
+      0,
+      -1
+    );
+  } else if (operationDisplay.textContent !== "") {
+    if (
+      operationDisplay.textContent.slice(
+        operationDisplay.textContent.length - 1
+      ) === " "
+    ) {
+      operationDisplay.textContent = operationDisplay.textContent.slice(0, -2);
+    }
+    operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+  }
+});
+
+$("#clear").addEventListener("click", () => {
+  currentNumberDisplay.textContent = "";
+  operationDisplay.textContent = "";
+});

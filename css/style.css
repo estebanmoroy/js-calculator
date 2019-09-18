@@ -1,7 +1,22 @@
+body {
+  font-family: "Signika", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  background-image: linear-gradient(
+    to right,
+    #a1c4fd 0%,
+    #c2e9fb 51%,
+    #a1c4fd 100%
+  );
+}
+
 .frame {
-  width: 300px;
-  height: 500px;
-  border: solid 5px black;
+  background-color: #fff;
+  border-radius: 7%/4%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  width: 305px;
+  height: 550px;
+  padding: 20px 5px;
 }
 
 .grid-container {
@@ -15,10 +30,45 @@
 .operation-display {
   grid-column: 1/5;
   grid-row: 1/2;
+  align-self: end;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .current-number-display {
-  background-color: gray;
   grid-column: 1/5;
   grid-row: 2/3;
+  align-self: end;
+  font-size: 2em;
+  text-align: right;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+  display: block;
+  border-radius: 50%;
+  font-family: inherit;
+  font-size: 1em;
+  margin: 4px 5px;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+button:hover {
+  background-color: blue;
+}
+
+#equals {
+  background-color: #009faf;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#multiply {
+  padding-top: 15px;
+}
+
+#dot {
+  padding-bottom: 15px;
 }

@@ -6,11 +6,15 @@
 }
 
 html {
-  margin: 0;
   height: 100%;
+  margin: 0;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
   font-family: "Signika", sans-serif;
   font-weight: 500;
   font-size: 2rem;
@@ -23,6 +27,10 @@ body {
     #80e3d0,
     #6fdecd
   );
+}
+
+.wrapper {
+  flex: 1 0 auto;
 }
 
 .frame {
@@ -96,4 +104,21 @@ button:hover {
 
 #dot {
   padding-bottom: 15px;
+}
+
+footer {
+  flex-shrink: 0;
+  padding-left: 1rem;
+  text-align: center;
+  font-size: 0.6em;
+  color: var(--font-color);
+  opacity: 0.75;
+}
+
+a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+footer > i {
+  padding-left: 5rem;
 }

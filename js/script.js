@@ -139,23 +139,14 @@ operatorToDisplay("left-parentheses", "(");
 operatorToDisplay("right-parentheses", ")");
 
 $("#equals").addEventListener("click", () => {
-  if (
-    currentNumberDisplay.textContent === "69" &&
-    operationDisplay.textContent === ""
-  ) {
-    currentNumberDisplay.textContent = "nice.";
+  operationDisplay.textContent =
+    operationDisplay.textContent + currentNumberDisplay.textContent;
+  currentNumberDisplay.textContent = "";
+  if (isNaN(calculator(operationDisplay.textContent))) {
+    operationDisplay.textContent = "Invalid operation";
   } else {
-    operationDisplay.textContent =
-      operationDisplay.textContent + currentNumberDisplay.textContent;
-    currentNumberDisplay.textContent = "";
-    if (isNaN(calculator(operationDisplay.textContent))) {
-      operationDisplay.textContent = "Invalid operation";
-    } else {
-      currentNumberDisplay.textContent = calculator(
-        operationDisplay.textContent
-      );
-      operationDisplay.textContent = "";
-    }
+    currentNumberDisplay.textContent = calculator(operationDisplay.textContent);
+    operationDisplay.textContent = "";
   }
 });
 

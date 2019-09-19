@@ -135,8 +135,8 @@ operatorToDisplay("add", "+");
 operatorToDisplay("subtract", "-");
 operatorToDisplay("multiply", "*");
 operatorToDisplay("divide", "/");
-operatorToDisplay("left-parentheses", "(");
-operatorToDisplay("right-parentheses", ")");
+operatorToDisplay("left-parenthesis", "(");
+operatorToDisplay("right-parenthesis", ")");
 
 $("#equals").addEventListener("click", () => {
   operationDisplay.textContent =

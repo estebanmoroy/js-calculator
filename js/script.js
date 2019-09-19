@@ -25,7 +25,7 @@ function shuntingYard(string) {
         operatorStack.push(e);
       }
       if (e === ")") {
-        while (lastItem(operatorStack) !== "(")
+        while (lastItem(operatorStack) !== "(" && operatorStack.length !== 0)
           output.push(operatorStack.pop());
         operatorStack.pop();
       }

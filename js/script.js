@@ -149,13 +149,13 @@ $("#equals").addEventListener("click", () => {
       operationDisplay.textContent + currentNumberDisplay.textContent;
     currentNumberDisplay.textContent = "";
     if (isNaN(calculator(operationDisplay.textContent))) {
-      currentNumberDisplay.textContent = "Invalid operation";
+      operationDisplay.textContent = "Invalid operation";
     } else {
       currentNumberDisplay.textContent = calculator(
         operationDisplay.textContent
       );
+      operationDisplay.textContent = "";
     }
-    operationDisplay.textContent = "";
   }
 });
 
